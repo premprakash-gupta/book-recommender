@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Recommendation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .book-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .book-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .book-title {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .book-author {
+      color: gray;
+      font-size: 0.9rem;
+    }
+
+    .book-meta,
+    .book-rating {
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body style="background-color: #f8f9fa;">
+  <nav class="navbar navbar-expand-lg" style="background-color: rgb(164, 210, 210);">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Book Recommender</a>
+      <ul class="navbar-nav ms-auto" style="gap: 2rem;">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/recommend">Recommendation</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <form action="/recommend_book" method="post">
+    <input type="text" class="form-control mt-3 mb-3" placeholder="Search for books..." aria-label="Search"
+      name="user_input" required>
+    <button type="submit" class="btn btn-primary">Search</button>
+
+  </form>
+
+
+  {% if book_name %}
+  <div class="row">
+    {% for i in range(book_name|length) %}
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1 d-flex">
+      <div class="book-card w-100">
+        <img src="{{ image[i] }}" class="book-img" alt="Book Image">
+        <div class="book-title">{{ book_name[i] }}</div>
+        <div class="book-author">{{ author_name[i] }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -4,14 +4,13 @@ import pickle
 
 # Load the pre-trained model and data
 
-popular_book =open('E:/Book Reccomendation/Reccomand frontend and server/popular.pkl', 'rb')
-# Use 'rb' mode to read the pickle file in binary format
-popular_books = pickle.load(popular_book)
 
-pt = pickle.load(open('E:/Book Reccomendation/Reccomand frontend and server/pt.pkl', 'rb'))
-books = pickle.load(open('E:/Book Reccomendation/Reccomand frontend and server/books.pkl', 'rb'))
+popular_books = pickle.load(open('popular.pkl', 'rb'))
 
-similarity_score = pickle.load(open('E:/Book Reccomendation/Reccomand frontend and server/similarity_score.pkl', 'rb'))
+pt = pickle.load(open('pt.pkl', 'rb'))
+books = pickle.load(open('books.pkl', 'rb'))
+
+similarity_score = pickle.load(open('similarity_score.pkl', 'rb'))
 
 
 app = Flask(__name__)
